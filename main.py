@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import json
+
 
 intents=discord.Intents.default()
 intents.members=True
@@ -29,4 +29,4 @@ async def ping(ctx):
     await ctx.send('{0}毫秒'.format(round(bot.latency*1000)))
 
 
-bot.run('OTU1MzM3OTgyMzMwNjc5MzU3.YjgN1A.ocbuUmqhj4HRHwlFFGqq9aw2ga0')
+bot.run('')
