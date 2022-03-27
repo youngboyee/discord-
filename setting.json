@@ -1,11 +1,5 @@
 {
 
-    "TOKEN":"",
-    "Welcome_channel":"848189292467191860",
-    "Bye_channel":"848189292467191860",
-    "pic":["D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\1.jpg",
-        "D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\2.jpg",
-        "D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\3.jpg"],
-    "url_pic":["https://truth.bahamut.com.tw/s01/202112/1fdcb960db075ba07ac401291ac5611d.JPG",
-            "https://i.imgur.com/n1G3jav.jpg"]
+    "TOKEN":""
+
 }
