@@ -22,12 +22,12 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    channel=bot.get_channel(int(jdata['Welcome_channel']))
+    channel=bot.get_channel(int(jdata['hi_channel']))
     await channel.send(f'{member}降落啦!')
     
 @bot.event
 async def on_member_remove(member):
-    channel=bot.get_channel(int(jdata['Bye_channel']))
+    channel=bot.get_channel(int(jdata['bye_channel']))
     await channel.send(f'{member}飛走了...')
  
 @bot.command()
@@ -39,7 +39,7 @@ async def 圖片(ctx):
     random_pic=random.choice(jdata['pic'])
     pic=discord.File(random_pic)
     await ctx.send(file=pic)
-    
+
 @bot.command()
 async def 網路圖片(ctx):
     web_pic=random.choice(jdata['url_pic'])
