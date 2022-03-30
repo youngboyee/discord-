@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import random
 import datetime as dt
-import time
+import pytz
 
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -12,7 +12,7 @@ with open('setting.json',mode='r',encoding='utf8') as jfile:
 intents=discord.Intents.default()
 intents.members=True
 
-bot=commands.Bot(command_prefix='!',intents=intents)
+bot=commands.Bot(command_prefix='-',intents=intents)
 
 @bot.event
 async def on_ready():
@@ -32,7 +32,7 @@ async def on_member_remove(member):
     await channel.send(f'{member}飛走了...')
  
 @bot.command()
-async def ping(self,ctx):
+async def ping(ctx):
     await ctx.send('{0}毫秒'.format(round(bot.latency*1000)))
 
 @bot.command()
@@ -51,10 +51,10 @@ async def chat(ctx,msg):
     await ctx.send('{0}LOL'.format(msg))
 
 @bot.command()
-async def ebd(ctx):
-    a=time.mktime(dt.timetuple())
-    embed=discord.Embed(title="click here", url="https://github.com/youngboyee/discord-", description="about Zhan", color=0x6ef2ca,
-    timestamp=dt.datetime.now(a))
+async def 查榜(ctx):
+    TWtz = pytz.timezone('UTC')
+    embed=discord.Embed(title="click here", url="https://www.cac.edu.tw/apply111/index.php", description="一階查榜", color=0x6ef2ca,
+    timestamp=dt.datetime.now(tz=TWtz))
     embed.set_author(name="youngboyee", icon_url="https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG")
     embed.add_field(name="bot", value="aaa", inline=False)
     await ctx.send(embed=embed)
