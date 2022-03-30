@@ -2,7 +2,8 @@ import discord
 from discord.ext import commands
 import json
 import random
-
+import datetime as dt
+import time
 
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -48,6 +49,15 @@ async def 網路圖片(ctx):
 @bot.command()
 async def chat(ctx,msg):
     await ctx.send('{0}LOL'.format(msg))
+
+@bot.command()
+async def ebd(ctx):
+    a=time.mktime(dt.timetuple())
+    embed=discord.Embed(title="click here", url="https://github.com/youngboyee/discord-", description="about Zhan", color=0x6ef2ca,
+    timestamp=dt.datetime.now(a))
+    embed.set_author(name="youngboyee", icon_url="https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG")
+    embed.add_field(name="bot", value="aaa", inline=False)
+    await ctx.send(embed=embed)
     
 
 bot.run(jdata['TOKEN'])
