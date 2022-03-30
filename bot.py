@@ -58,10 +58,10 @@ async def 查榜(ctx):
     await ctx.send(embed=embed)
 @bot.command()
 async def say(ctx,*,msg):
-    await ctx.message.delete()
-    await ctx.send(msg)
+    #await ctx.message.delete()
+    await ctx.send("Don't say {0}!".format(msg))
 @bot.command()
 async def clean(ctx,num:int):
-    await ctx.channel.purge(limit=num)
+    await ctx.channel.purge(limit=num+1)
 
 bot.run(jdata['TOKEN'])
