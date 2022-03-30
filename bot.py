@@ -17,8 +17,6 @@ bot=commands.Bot(command_prefix='-',intents=intents)
 @bot.event
 async def on_ready():
     print('Zhan has landed')
-    channel=bot.get_channel(955340986979086408)
-    await channel.send('Zhan降落啦!')
     
 
 @bot.event
@@ -58,6 +56,12 @@ async def 查榜(ctx):
     embed.set_author(name="youngboyee", icon_url="https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG")
     embed.add_field(name="bot", value="aaa", inline=False)
     await ctx.send(embed=embed)
-    
+@bot.command()
+async def say(ctx,*,msg):
+    await ctx.message.delete()
+    await ctx.send(msg)
+@bot.command()
+async def clean(ctx,num:int):
+    await ctx.channel.purge(limit=num)
 
 bot.run(jdata['TOKEN'])
