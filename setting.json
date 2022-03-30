@@ -1,11 +1,13 @@
 {
 
-    "TOKEN":"",
-    "hi_channel":"848189292467191860",
-    "bye_channel":"848189292467191860",
+    "TOKEN":"OTU1MzM3OTgyMzMwNjc5MzU3.YjgN1A.SJAfZKkBs70kgMaFnykIrqNyWLs",
+    "hi_channel":"955340986979086408",
+    "bye_channel":"955340986979086408",
+    
     "pic":["D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\1.jpg",
             "D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\2.jpg",
             "D:\\楊柏逸\\Documents\\GitHub\\discord-\\picture\\3.jpg"],
+
     "url_pic":["https://truth.bahamut.com.tw/s01/202112/1fdcb960db075ba07ac401291ac5611d.JPG",
             "https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG"]
 

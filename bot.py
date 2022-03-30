@@ -16,7 +16,7 @@ bot=commands.Bot(command_prefix='!',intents=intents)
 @bot.event
 async def on_ready():
     print('Zhan has landed')
-    channel=bot.get_channel(848189292467191860)
+    channel=bot.get_channel(955340986979086408)
     await channel.send('Zhan降落啦!')
     
 
@@ -31,7 +31,7 @@ async def on_member_remove(member):
     await channel.send(f'{member}飛走了...')
  
 @bot.command()
-async def ping(ctx):
+async def ping(self,ctx):
     await ctx.send('{0}毫秒'.format(round(bot.latency*1000)))
 
 @bot.command()
@@ -44,6 +44,10 @@ async def 圖片(ctx):
 async def 網路圖片(ctx):
     web_pic=random.choice(jdata['url_pic'])
     await ctx.send(web_pic)
+
+@bot.command()
+async def chat(ctx,msg):
+    await ctx.send('{0}LOL'.format(msg))
     
 
 bot.run(jdata['TOKEN'])
