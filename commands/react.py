@@ -31,15 +31,15 @@ class react(cog_extension):
         embed.add_field(name="bot", value="aaa", inline=False)
         await ctx.send(embed=embed)
     @commands.command()
-    async def chat(ctx,msg):
+    async def chat(self,ctx,msg):
         await ctx.send('{0}LOL'.format(msg))
 
     @commands.command()
-    async def say(ctx,*,msg):
+    async def say(self,ctx,*,msg):
         #await ctx.message.delete()
         await ctx.send("Don't say {0}!".format(msg))
     @commands.command()
-    async def clean(ctx,num:int):
+    async def clean(self,ctx,num:int):
         await ctx.channel.purge(limit=num+1)
 
 def setup(bot):
