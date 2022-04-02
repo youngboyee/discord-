@@ -30,6 +30,17 @@ class react(cog_extension):
         embed.set_author(name="youngboyee", icon_url="https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG")
         embed.add_field(name="bot", value="aaa", inline=False)
         await ctx.send(embed=embed)
+    @commands.command()
+    async def chat(ctx,msg):
+        await ctx.send('{0}LOL'.format(msg))
 
-    def setup(bot):
-        bot.add_cog(react(bot))
+    @commands.command()
+    async def say(ctx,*,msg):
+        #await ctx.message.delete()
+        await ctx.send("Don't say {0}!".format(msg))
+    @commands.command()
+    async def clean(ctx,num:int):
+        await ctx.channel.purge(limit=num+1)
+
+def setup(bot):
+    bot.add_cog(react(bot))

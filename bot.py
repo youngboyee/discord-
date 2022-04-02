@@ -1,10 +1,7 @@
 import discord
 from discord.ext import commands
 import json
-import random
-import datetime as dt
-import pytz
-
+import os
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
@@ -30,21 +27,16 @@ async def on_member_remove(member):
     await channel.send(f'{member}飛走了...')
  
 @bot.command()
-async def ping(ctx):
-    await ctx.send('{0}毫秒'.format(round(bot.latency*1000)))
+async def load(ctx,extension):
+    bot.load_extension(f'commands.{extension}')
+    await ctx.send('loaded{0}'.format(extension))
 
 
 
-@bot.command()
-async def chat(ctx,msg):
-    await ctx.send('{0}LOL'.format(msg))
+for Filename in os.listdir('./commands'):
+    if Filename.endswith('.py'):
+        bot.load_extension(f'commands.{Filename[:-3]}')
 
-@bot.command()
-async def say(ctx,*,msg):
-    #await ctx.message.delete()
-    await ctx.send("Don't say {0}!".format(msg))
-@bot.command()
-async def clean(ctx,num:int):
-    await ctx.channel.purge(limit=num+1)
+if __name__ =='__main__':
+     bot.run(jdata['TOKEN'])
 
-bot.run(jdata['TOKEN'])
