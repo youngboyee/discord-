@@ -29,7 +29,15 @@ async def on_member_remove(member):
 @bot.command()
 async def load(ctx,extension):
     bot.load_extension(f'commands.{extension}')
-    await ctx.send('loaded{0}'.format(extension))
+    await ctx.send('loaded {0} done'.format(extension))
+@bot.command()
+async def reload(ctx,extension):
+    bot.reload_extension(f'commands.{extension}')
+    await ctx.send('reloaded {0} done'.format(extension))
+@bot.command()
+async def unload(ctx,extension):
+    bot.unload_extension(f'commands.{extension}')
+    await ctx.send('unloaded {0} done'.format(extension))
 
 
 
