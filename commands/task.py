@@ -19,7 +19,7 @@ class task(cog_extension):
                #await self.channel.send("It's working")
                #await asyncio.sleep(1)#讓程式有間隔時間，以免卡住
                #self.Atask=self.bot.loop.create_task(interval())
-        
+        self.counter=0
         async def timetask():
             await self.bot.wait_until_ready()
             self.channel=self.bot.get_channel(848189292467191860)
@@ -27,13 +27,14 @@ class task(cog_extension):
                 now_time=datetime.datetime.now().strftime('%H%M')
                 with open('setting.json',mode='r',encoding='utf8') as jfile:
                     jdata=json.load(jfile)
-                if now_time==jdata['time']:
+                if now_time==jdata["time"] and self.counter==0:
                     await self.channel.send("It's working")
                     await asyncio.sleep(1)#讓程式有間隔時間，以免卡住
+                    self.counter=1
                 else:
                     await asyncio.sleep(1)
                     pass
-            self.Atask=self.bot.loop.create_task(timetask())
+        self.Atask=self.bot.loop.create_task(timetask())
 
 
     @commands.command()
@@ -43,6 +44,7 @@ class task(cog_extension):
 
     @commands.command()
     async def settime(self,ctx,time):
+        self.counter=0
         with open('setting.json',mode='r',encoding='utf8') as jfile:
             jdata=json.load(jfile)
         jdata['time']=time#把輸入的時間傳入jdata
