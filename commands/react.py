@@ -6,6 +6,7 @@ import datetime as dt
 import pytz
 from core.classes import cog_extension
 import requests
+import twstock as tws
 
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -48,9 +49,9 @@ class react(cog_extension):
         complete_url = jdata['base_url'] + "appid=" + jdata['api_key'] + "&q=" + city_name
         response = requests.get(complete_url)
         x = response.json()
-        channel = ctx.message.channel
+        
         if x["cod"] != "404":
-            async with channel.typing():
+            async with ctx.message.channel.typing():
                 y = x["main"]
                 temperature=y["temp"]
                 celsiuis_temperature= str(round(temperature-273.15))
@@ -62,14 +63,37 @@ class react(cog_extension):
                 embed = discord.Embed(title=f"Weather in {city_name}",
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
-                embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
+                embed.add_field(name="概況", value=f"**{weather_description}**", inline=False)
                 embed.add_field(name="溫度(C)", value=f"**{celsiuis_temperature}°C**", inline=False)
                 embed.add_field(name="濕度(%)", value=f"**{humidity}%**", inline=False)
                 embed.add_field(name="氣壓(hPa)", value=f"**{pressure}hPa**", inline=False)
                 embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
                 embed.set_footer(text=f"Requested by {ctx.author.name}")
+                await ctx.send(embed=embed)
+        else:
+            await ctx.send("City not found.")
+    @commands.command()
+    async def stock(self,ctx,sid:str):
+        data = tws.realtime.get(sid)
+        channel = ctx.message.channel
+        if data["success"] != False:
+            async with channel.typing():
+                rt = data["realtime"]
+                ltp = rt["latest_trade_price"]
+                h = rt["high"]
+                l = rt["low"]
+                op = rt["open"]
+                info=data['info']
+                time = info["time"]
+                embed = discord.Embed(title=f"Stock prize at {time}",
+                                color=ctx.guild.me.top_role.color,
+                                timestamp=ctx.message.created_at,)
+                embed.add_field(name="Latest Trade Price", value=f"**{ltp}**", inline=False)
+                embed.add_field(name="Open", value=f"**{op}**", inline=False)
+                embed.add_field(name="High", value=f"**{h}**", inline=False)
+                embed.add_field(name="Low", value=f"**{l}**", inline=False)
                 await channel.send(embed=embed)
         else:
-            await channel.send("City not found.")
+            await channel.send("Stock not found.")
 def setup(bot):
     bot.add_cog(react(bot))
