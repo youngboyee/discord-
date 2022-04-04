@@ -74,10 +74,10 @@ class react(cog_extension):
             await channel.send("City not found.")
     @command.command()
     async def stock(self,ctx,sid:str):
+        data = tws.realtime.get(sid)
         channel = ctx.message.channel
-        if x["cod"] != "404":
+        if data["success"] != False:
             async with channel.typing():
-                data = tws.realtime.get(a)
                 rt = data["realtime"]
                 ltp = rt["latest_trade_price"]
                 h = rt["high"]
