@@ -82,14 +82,15 @@ class react(cog_extension):
                 ltp = rt["latest_trade_price"]
                 h = rt["high"]
                 l = rt["low"]
+                info = data["info"]
                 op = rt["open"]
                 time = rt["time"]
                 embed = discord.Embed(title=f"Stock prize at {time}",
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
                 embed.add_field(name="Latest Trade Price", value=f"**{ltp}**", inline=False)
-                embed.add_field(name="Open", value=f"**{open}**", inline=False)
-                embed.add_field(name="High", value=f"**{h}%**", inline=False)
+                embed.add_field(name="Open", value=f"**{op}**", inline=False)
+                embed.add_field(name="High", value=f"**{h}**", inline=False)
                 embed.add_field(name="Low", value=f"**{l}**", inline=False)
                 await channel.send(embed=embed)
         else:
