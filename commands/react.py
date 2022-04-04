@@ -89,9 +89,9 @@ class react(cog_extension):
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
                 embed.add_field(name="Latest Trade Price", value=f"**{ltp}**", inline=False)
-                embed.add_field(name="Open", value=f"**{op}**", inline=False)
-                embed.add_field(name="High", value=f"**{h}**", inline=False)
-                embed.add_field(name="Low", value=f"**{l}**", inline=False)
+                embed.add_field(name="開盤價", value=f"**{op}**", inline=False)
+                embed.add_field(name="高點", value=f"**{h}**", inline=False)
+                embed.add_field(name="低點", value=f"**{l}**", inline=False)
                 await channel.send(embed=embed)
         else:
             await channel.send("Stock not found.")
