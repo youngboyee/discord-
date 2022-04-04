@@ -84,7 +84,7 @@ class react(cog_extension):
                 l = rt["low"]
                 info = data["info"]
                 op = rt["open"]
-                time = rt["time"]
+                time = info["time"]
                 embed = discord.Embed(title=f"Stock prize at {time}",
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
