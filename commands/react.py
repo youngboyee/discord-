@@ -44,7 +44,8 @@ class react(cog_extension):
         await ctx.channel.purge(limit=num+1)
     @commands.command()
     async def weather(self,ctx,*,city:str):
-        complete_url = jdata['base_url'] + "appid=" + jdata['api_key'] + "&q=" + city
+        city_name=city
+        complete_url = jdata['base_url'] + "appid=" + jdata['api_key'] + "&q=" + city_name
         response = requests.get(complete_url)
         x = response.json()
         channel = ctx.message.channel
