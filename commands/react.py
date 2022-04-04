@@ -6,6 +6,7 @@ import datetime as dt
 import pytz
 from core.classes import cog_extension
 import requests
+import twstock as tws
 
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -71,5 +72,28 @@ class react(cog_extension):
                 await channel.send(embed=embed)
         else:
             await channel.send("City not found.")
+    @command.command()
+    async def stock(self,ctx,sid:str):
+        data = tws.realtime.get(sid)
+        channel = ctx.message.channel
+        if data["success"] != False:
+            async with channel.typing():
+                rt = data["realtime"]
+                ltp = rt["latest_trade_price"]
+                h = rt["high"]
+                l = rt["low"]
+                info = data["info"]
+                op = rt["open"]
+                time = info["time"]
+                embed = discord.Embed(title=f"Stock prize at {time}",
+                                color=ctx.guild.me.top_role.color,
+                                timestamp=ctx.message.created_at,)
+                embed.add_field(name="Latest Trade Price", value=f"**{ltp}**", inline=False)
+                embed.add_field(name="Open", value=f"**{op}**", inline=False)
+                embed.add_field(name="High", value=f"**{h}**", inline=False)
+                embed.add_field(name="Low", value=f"**{l}**", inline=False)
+                await channel.send(embed=embed)
+        else:
+            await channel.send("Stock not found.")
 def setup(bot):
     bot.add_cog(react(bot))
