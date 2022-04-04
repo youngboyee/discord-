@@ -1,5 +1,5 @@
 {
-    "TOKEN": "",
+    "TOKEN": "OTU1MzM3OTgyMzMwNjc5MzU3.YjgN1A.hVpyW4u7BDJPWK3YVz_w9BLNutQ",
     "hi_channel": "955340986979086408",
     "bye_channel": "955340986979086408",
     "pic": [
@@ -11,5 +11,7 @@
         "https://truth.bahamut.com.tw/s01/202112/1fdcb960db075ba07ac401291ac5611d.JPG",
         "https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG"
     ],
-    "time": "1314"
+    "time": "1314",
+    "api_key":"1866b2392d3a9145e6ee53144eb94ffb",
+    "base_url":"http://api.openweathermap.org/data/2.5/weather?"
 }

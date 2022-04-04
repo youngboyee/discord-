@@ -5,6 +5,7 @@ import random
 import datetime as dt
 import pytz
 from core.classes import cog_extension
+import requests
 
 with open('setting.json',mode='r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
@@ -41,6 +42,32 @@ class react(cog_extension):
     @commands.command()
     async def clean(self,ctx,num:int):
         await ctx.channel.purge(limit=num+1)
+    @commands.command()
+    async def weather(self,ctx,*,city:str):
+        city_name = city
+        complete_url = jdata['base_url'] + "appid=" + jdata['api_key'] + "&q=" + city_name
+        response = requests.get(complete_url)
+        self.x = response.json()
+        self.channel = ctx.message.channel
+        if self.x["cod"] != "404":
+            async with self.channel.typing():
+                self.y = self.x["main"]
+                temperature=self.y["temp"]
+                self.celsiuis_temperature= str(round(temperature-273.15))
+                self.pressure=self.y["pressure"]
+                self.humidity=self.y["humidity"]
+                self.z=self.x["weather"]
+                self.weather_description = self.z[0]["description"]
+                weather_description = self.z[0]["description"]
+                embed = discord.Embed(title=f"Weather in {city_name}",
+                                color=ctx.guild.me.top_role.color,
+                                timestamp=ctx.message.created_at,)
+                embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
+                embed.add_field(name="溫度(C)", value=f"**{self.celsiuis_temperature}°C**", inline=False)
+                embed.add_field(name="濕度(%)", value=f"**{self.humidity}%**", inline=False)
+                embed.add_field(name="Atmospheric Pressure(hPa)", value=f"**{self.pressure}hPa**", inline=False)
+                embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
+                embed.set_footer(text=f"Requested by {ctx.author.name}")
 
 def setup(bot):
     bot.add_cog(react(bot))

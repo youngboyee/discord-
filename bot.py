@@ -19,12 +19,12 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     channel=bot.get_channel(int(jdata['hi_channel']))
-    await channel.send(f'{member}降落啦!')
+    await channel.send(f'{member.mention}降落啦!')
     
 @bot.event
 async def on_member_remove(member):
     channel=bot.get_channel(int(jdata['bye_channel']))
-    await channel.send(f'{member}飛走了...')
+    await channel.send(f'{member.mention}飛走了...')
  
 @bot.command()
 async def load(ctx,extension):
