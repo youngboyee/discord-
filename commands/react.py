@@ -65,7 +65,7 @@ class react(cog_extension):
                 embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
                 embed.add_field(name="溫度(C)", value=f"**{celsiuis_temperature}°C**", inline=False)
                 embed.add_field(name="濕度(%)", value=f"**{humidity}%**", inline=False)
-                embed.add_field(name="Atmospheric Pressure(hPa)", value=f"**{pressure}hPa**", inline=False)
+                embed.add_field(name="氣壓(hPa)", value=f"**{pressure}hPa**", inline=False)
                 embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
                 embed.set_footer(text=f"Requested by {ctx.author.name}")
                 await channel.send(embed=embed)
