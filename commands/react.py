@@ -85,6 +85,8 @@ class react(cog_extension):
                 info = data["info"]
                 op = rt["open"]
                 time = info["time"]
+                name = info['fullname']
+                embed.add_field(name="Fullname", value=f"**{name}**", inline=False)
                 embed = discord.Embed(title=f"Stock prize at {time}",
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
