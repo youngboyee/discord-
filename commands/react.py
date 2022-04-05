@@ -91,10 +91,10 @@ class react(cog_extension):
                 op = rt["open"]
                 info=data['info']
                 time = info["time"]
-                embed = discord.Embed(title=f"Stock prize at {time}",
+                embed = discord.Embed(title=f"在{time}的股價",
                                 color=ctx.guild.me.top_role.color,
                                 timestamp=ctx.message.created_at,)
-                embed.add_field(name="Latest Trade Price", value=f"**{ltp}**", inline=False)
+                embed.add_field(name="當前股價", value=f"**{ltp}**", inline=False)
                 embed.add_field(name="開盤價", value=f"**{op}**", inline=False)
                 embed.add_field(name="高點", value=f"**{h}**", inline=False)
                 embed.add_field(name="低點", value=f"**{l}**", inline=False)

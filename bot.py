@@ -7,7 +7,7 @@ with open('setting.json',mode='r',encoding='utf8') as jfile:
 
 
 intents=discord.Intents.default()
-intents.members=True
+intents.members=True#這樣才可以啟動member功能
 
 bot=commands.Bot(command_prefix='-',intents=intents)#引號中的符號是打指令必需的東西
 
