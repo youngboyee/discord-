@@ -1,5 +1,5 @@
 {
-    "TOKEN": "",
+    "TOKEN": "OTU1MzM3OTgyMzMwNjc5MzU3.YjgN1A.BvXe5b1OdWOZXYvS7vG5EchwnPE",
     "hi_channel": "960533436668444792",
     "bye_channel": "960533436668444792",
     "pic": [
@@ -13,5 +13,8 @@
     ],
     "time": "1314",
     "api_key":"1866b2392d3a9145e6ee53144eb94ffb",
-    "base_url":"http://api.openweathermap.org/data/2.5/weather?"
+    "base_url":"http://api.openweathermap.org/data/2.5/weather?",
+    "ch_joke":["有一天牙籤A跟牙籤B在馬路上相遇\n突然一隻刺蝟快速的經過\n牙籤A就對牙籤B說 :乾，我的公車過了... ",
+        "有一天有個帥哥走在路上\n一個阿嬤突然上前搭訕說「帥哥，你超會搭耶」\n然後帥哥就冒煙了",
+        "劉備 字玄德\n張飛 字翼德\n五佰字？？\n心得"]
 }

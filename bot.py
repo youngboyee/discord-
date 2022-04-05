@@ -1,4 +1,4 @@
-import discord
+import discord  #至關重要
 from discord.ext import commands
 import json
 import os
@@ -12,20 +12,20 @@ intents.members=True
 bot=commands.Bot(command_prefix='-',intents=intents)
 
 @bot.event
-async def on_ready():
-    print('Zhan has landed')
+async def on_ready():#確認機器人已經上線
+    print("Yang's bot is ready!")
     
 
-@bot.event
+@bot.event#成員進入伺服器
 async def on_member_join(member):
-    channel=bot.get_channel(int(jdata['hi_channel']))
-    await channel.send(f'{member.mention}降落啦!')
-    
-@bot.event
+    channel=bot.get_channel(int(jdata['hi_channel']))#在json檔裡面指定頻道ID
+    await channel.send(f'{member.mention}降落啦!')#在頻道裡面傳訊息
+                                #tag那個人
+@bot.event#成員離開伺服器
 async def on_member_remove(member):
     channel=bot.get_channel(int(jdata['bye_channel']))
     await channel.send(f'{member.mention}飛走了...')
- 
+#以下為cog的東西
 @bot.command()
 async def load(ctx,extension):
     bot.load_extension(f'commands.{extension}')

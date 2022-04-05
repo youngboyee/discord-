@@ -23,6 +23,10 @@ class react(cog_extension):
     async def 網路圖片(self,ctx):
         web_pic=random.choice(jdata['url_pic'])
         await ctx.send(web_pic)
+    @commands.command()
+    async def 笑話(self,ctx):
+        random_ch_joke=random.choice(jdata['ch_joke'])
+        await ctx.send(random_ch_joke)
 
     @commands.command()
     async def 查榜(self,ctx):
