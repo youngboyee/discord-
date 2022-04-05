@@ -1,5 +1,5 @@
 {
-    "TOKEN": "OTU1MzM3OTgyMzMwNjc5MzU3.YjgN1A.BvXe5b1OdWOZXYvS7vG5EchwnPE",
+    "TOKEN": "",
     "hi_channel": "960533436668444792",
     "bye_channel": "960533436668444792",
     "pic": [
@@ -11,7 +11,6 @@
         "https://truth.bahamut.com.tw/s01/202112/1fdcb960db075ba07ac401291ac5611d.JPG",
         "https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG"
     ],
-    "time": "2329",
     "api_key": "1866b2392d3a9145e6ee53144eb94ffb",
     "base_url": "http://api.openweathermap.org/data/2.5/weather?",
     "ch_joke": [
@@ -20,5 +19,6 @@
         "\u5289\u5099 \u5b57\u7384\u5fb7\n\u5f35\u98db \u5b57\u7ffc\u5fb7\n\u4e94\u4f70\u5b57\uff1f\uff1f\n\u5fc3\u5f97",
         "\u6709\u4e00\u5929Y\u8ddfX\u8d70\u5728\u8def\u4e0a\uff0c\u7a81\u7136\u770b\u5230U\u54ed\u5f97\u5f88\u50b7\u5fc3\uff0cY\u5c31\u8d70\u904e\u53bb\u554fU\u8aaa\uff1auniqlo"
     ],
-    "time_setter": ""
+    "schedule": "\u505aproject",
+    "time": "0038"
 }

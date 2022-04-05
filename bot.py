@@ -26,7 +26,7 @@ async def on_member_remove(member):
     channel=bot.get_channel(int(jdata['bye_channel']))
     await channel.send(f'{member.mention}飛走了...')
 
-#以下為cog的東西，把功能分門別類
+#以下為cog的東西，把功能指令分門別類
 @bot.command()
 async def load(ctx,extension):
     bot.load_extension(f'commands.{extension}')

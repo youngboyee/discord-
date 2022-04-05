@@ -3,10 +3,9 @@ from discord.ext import commands
 import json
 import asyncio
 import datetime 
-import pytz
 from core.classes import cog_extension
 
-s=[]
+timesetter=[]
 
 class task(cog_extension):
     def __init__(self,*args,**kwargs):
@@ -20,7 +19,7 @@ class task(cog_extension):
                #await asyncio.sleep(1)#讓程式有間隔時間，以免卡住
                #self.Atask=self.bot.loop.create_task(interval())
         self.counter=0
-        async def timetask():
+        async def timetask():#指定時間執行
             
             await self.bot.wait_until_ready()
             self.channel=self.bot.get_channel(960024341087682570)#指定頻道
@@ -28,14 +27,17 @@ class task(cog_extension):
                 now_time=datetime.datetime.now().strftime('%H%M')
                 with open('setting.json',mode='r',encoding='utf8') as jfile:
                     jdata=json.load(jfile)
-                if now_time==jdata["time"] and self.counter<5:
-                    await self.channel.send("{0}起來囉".format(s[0].mention))
+                if now_time==jdata["time"] and self.counter<3:
+                    await self.channel.send("{0}你不是要{1}嗎?".format(timesetter[0].mention,jdata["schedule"]))
                     await asyncio.sleep(1)#讓程式有間隔時間，以免卡住
                     self.counter+=1
-                    s.clear()
+                    
                 else:
                     await asyncio.sleep(1)
                     pass
+            self.counter=0
+            timesetter.clear()
+        
         self.Atask=self.bot.loop.create_task(timetask())
 
 
@@ -44,15 +46,23 @@ class task(cog_extension):
         self.channel=self.bot.get_channel(ch_id)
         await ctx.send('Set channel:{0}'.format(self.channel.mention))#tag頻道
 
-    @commands.command()
+    @commands.command()#設定時間
     async def settime(self,ctx,time):
-        self.counter=0
         with open('setting.json',mode='r',encoding='utf8') as jfile:
             jdata=json.load(jfile)
         jdata['time']=time#把輸入的時間傳入jdata
         with open('setting.json',mode='w',encoding='utf8') as jfile:
             json.dump(jdata,jfile,indent=4)#縮排，檔案才不會爆
-        s.append(ctx.author)
+        timesetter.append(ctx.author)
+
+    @commands.command()#設定要做的事
+    async def schedule(self,ctx,time):
+        with open('setting.json',mode='r',encoding='utf8') as jfile:
+            jdata=json.load(jfile)
+        jdata['schedule']=time#把輸入的事傳入jdata
+        with open('setting.json',mode='w',encoding='utf8') as jfile:
+            json.dump(jdata,jfile,indent=4)#縮排，檔案才不會爆
+        
 
 def setup(bot):                                          
     bot.add_cog(task(bot))
