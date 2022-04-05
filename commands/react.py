@@ -25,9 +25,9 @@ class react(cog_extension):
         await ctx.send(web_pic)
 
     @commands.command()
-    async def 笑話(self,ctx):
-        random_ch_joke=random.choice(jdata['ch_joke'])
-        await ctx.send(random_ch_joke)
+    async def joke(self,ctx):
+        joke=random.choice(jdata['ch_joke'])
+        await ctx.send(joke)
         await ctx.send('\n.\n.\n{0}拜託說好笑喔'.format(ctx.author.mention))
 
     @commands.command()

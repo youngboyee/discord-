@@ -11,11 +11,14 @@
         "https://truth.bahamut.com.tw/s01/202112/1fdcb960db075ba07ac401291ac5611d.JPG",
         "https://truth.bahamut.com.tw/s01/202110/a50732a732a0bf9f0e8506a221220014.JPG"
     ],
-    "time": "1314",
-    "api_key":"1866b2392d3a9145e6ee53144eb94ffb",
-    "base_url":"http://api.openweathermap.org/data/2.5/weather?",
-    "ch_joke":["有一天牙籤A跟牙籤B在馬路上相遇\n突然一隻刺蝟快速的經過\n牙籤A就對牙籤B說 :乾，我的公車過了... ",
-        "有一天有個帥哥走在路上\n一個阿嬤突然上前搭訕說「帥哥，你超會搭耶」\n然後帥哥就冒煙了",
-        "劉備 字玄德\n張飛 字翼德\n五佰字？？\n心得",
-        "有一天Y跟X走在路上，突然看到U哭得很傷心，Y就走過去問U說：uniqlo"]
+    "time": "2329",
+    "api_key": "1866b2392d3a9145e6ee53144eb94ffb",
+    "base_url": "http://api.openweathermap.org/data/2.5/weather?",
+    "ch_joke": [
+        "\u6709\u4e00\u5929\u7259\u7c64A\u8ddf\u7259\u7c64B\u5728\u99ac\u8def\u4e0a\u76f8\u9047\n\u7a81\u7136\u4e00\u96bb\u523a\u875f\u5feb\u901f\u7684\u7d93\u904e\n\u7259\u7c64A\u5c31\u5c0d\u7259\u7c64B\u8aaa :\u4e7e\uff0c\u6211\u7684\u516c\u8eca\u904e\u4e86... ",
+        "\u6709\u4e00\u5929\u6709\u500b\u5e25\u54e5\u8d70\u5728\u8def\u4e0a\n\u4e00\u500b\u963f\u5b24\u7a81\u7136\u4e0a\u524d\u642d\u8a15\u8aaa\u300c\u5e25\u54e5\uff0c\u4f60\u8d85\u6703\u642d\u8036\u300d\n\u7136\u5f8c\u5e25\u54e5\u5c31\u5192\u7159\u4e86",
+        "\u5289\u5099 \u5b57\u7384\u5fb7\n\u5f35\u98db \u5b57\u7ffc\u5fb7\n\u4e94\u4f70\u5b57\uff1f\uff1f\n\u5fc3\u5f97",
+        "\u6709\u4e00\u5929Y\u8ddfX\u8d70\u5728\u8def\u4e0a\uff0c\u7a81\u7136\u770b\u5230U\u54ed\u5f97\u5f88\u50b7\u5fc3\uff0cY\u5c31\u8d70\u904e\u53bb\u554fU\u8aaa\uff1auniqlo"
+    ],
+    "time_setter": ""
 }

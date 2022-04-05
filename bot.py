@@ -9,7 +9,7 @@ with open('setting.json',mode='r',encoding='utf8') as jfile:
 intents=discord.Intents.default()
 intents.members=True
 
-bot=commands.Bot(command_prefix='-',intents=intents)
+bot=commands.Bot(command_prefix='-',intents=intents)#引號中的符號是打指令必需的東西
 
 @bot.event
 async def on_ready():#確認機器人已經上線
@@ -25,7 +25,8 @@ async def on_member_join(member):
 async def on_member_remove(member):
     channel=bot.get_channel(int(jdata['bye_channel']))
     await channel.send(f'{member.mention}飛走了...')
-#以下為cog的東西
+
+#以下為cog的東西，把功能分門別類
 @bot.command()
 async def load(ctx,extension):
     bot.load_extension(f'commands.{extension}')
